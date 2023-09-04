@@ -1,0 +1,9 @@
+<%= turbo_frame_tag dom_id(todo) do %>
+    <div class="<%= todo.completed ? 'completed' : 'not-completed' %>">
+      <%= todo.title %>
+
+      <%= link_to "delete", todo, method: :delete %>
+      <%= link_to "edit", edit_todo_path(todo) %>
+    </div>
+  <% end %>
+  

@@ -29,7 +29,6 @@ class TodosController < ApplicationController
         format.turbo_stream do
           render turbo_stream: turbo_stream.append('todos', partial: 'todos/todo', locals: { todo: @todo })
         end
-        # broadcast_append_to "todos", target: "todos"
         format.html { redirect_to todos_path, notice: "Todo was successfully created." }
         format.json { render :show, status: :created, location: @todo }
       else
@@ -68,7 +67,6 @@ class TodosController < ApplicationController
   
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_todo
       @todo = Todo.find(params[:id])
     end

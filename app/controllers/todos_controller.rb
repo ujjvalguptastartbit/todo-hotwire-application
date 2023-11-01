@@ -1,6 +1,13 @@
 class TodosController < ApplicationController
   before_action :set_todo, only: %i[ show edit update destroy ]
 
+
+  def allow_cross_domain_access
+    response.headers["Access-Control-Allow-Origin"] = '*'
+    response.headers["Access-Control-Allow-Methods"] = "GET, PUT, POST, DELETE, OPTIONS"
+    response.headers['Access-Control-Request-Method'] = '*'
+    response.headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  end
   # GET /todos or /todos.json
   def index
     @todos = Todo.all

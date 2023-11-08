@@ -1,5 +1,6 @@
 class TodosController < ApplicationController
   before_action :set_todo, only: %i[ show edit update destroy ]
+  before_action :allow_cross_domain_access
 
 
   def allow_cross_domain_access
